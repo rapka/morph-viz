@@ -1,7 +1,8 @@
 {
-	"artist": "",
-	"title": "",
-	"track": "passion.wav",
+	"artist": "morphologist",
+	"title": "silverback",
+	"album": "extant africana",
+	"track": "silverback.wav",
 	"textColor": "#FFFFFF",
 	"scopes": {
 		"count": 3,
@@ -14,7 +15,10 @@
 		"image": "",
 		"loopDuration": 0,
 		"css": "",
-		"vertical": false
+		"vertical": false,
+		"directory": "rhino",
+		"bpm": 123,
+		"numImages": 104
 	},
 	"art": {
 		"rotationDuration": 66,

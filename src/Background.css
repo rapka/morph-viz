@@ -19,6 +19,23 @@
   /*filter: hue-rotate(0.375turn);*/
 }
 
+.bg-container img {
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+}
+
+.visible {
+  z-index: 10 !important;
+}
+
+.slides {
+  display: none;
+}
+
 @keyframes slide {
   0% {
     background-position: -50vh 0%;

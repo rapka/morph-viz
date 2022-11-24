@@ -39,6 +39,7 @@ class Scope extends React.Component {
 
     const canvas = document.getElementById('canvas');
     const canvasCtx = canvas.getContext('2d');
+    const slideCtx = document.getElementById('slideshow').getContext('2d');
 
     let source = audioCtx.createMediaElementSource(audioElement);
     source.connect(analyser);
@@ -62,10 +63,6 @@ class Scope extends React.Component {
       HEIGHT = window.innerHeight;
       WIDTH = window.innerWidth;
 
-      if (this.props.playing) {
-        H = (H + 0.5) % 360;
-      }
-
       canvasCtx.canvas.width = WIDTH;
       canvasCtx.canvas.height = HEIGHT;
       canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
@@ -83,53 +80,19 @@ class Scope extends React.Component {
       let midValue = sum(bassArray.slice(512)) / 512;
 
       window.bassNormalized = bassNormalized;
-      bgElem.style.transform = `scale(${1 + bassValue * 0.00005})`;
-      bgElem.style.filter = `blur(${bassValue * 0.004}px)`;
-      overlayElem.style.filter = `blur(${bassValue * 0.0015}px)`;
-      overlayElem.style.transform = `translateY(${midValue * .15}px)`;
+      // bgElem.style.transform = `scale(${1 + bassValue * 0.00005})`;
+      // bgElem.style.filter = `blur(${bassValue * 0.004}px)`;
+      // overlayElem.style.filter = `blur(${bassValue * 0.002}px)`;
+      // overlayElem.style.transform = `translateY(${midValue * .15}px)`;
 
-      coverElem.style.filter = `blur(${bassValue * 0.0015}px)`;
+      coverElem.style.filter = `blur(${bassValue * 0.002}px)`;
+      console.log('aaa', 100 - bassValue * 0.3);
+      slideCtx.filter = `grayscale(${Math.max(100 - bassValue * 0.3, 0)}%)`;
+      // slideCtx.filter = `blur(200px)`;
 
       canvasCtx.fillStyle = 'rgba(200, 200, 200, 0)';
       canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
       canvasCtx.lineWidth = Math.max(bassValue / 100, 2);
-
-      const Y_OFFSET = 180;
-
-      times(this.props.colors.length, index => {
-        let rgb;
-
-        if (this.props.rotationOffset) {
-          const rotatedH = ((H + this.props.rotationOffset) * index) % 360;
-
-          rgb = hsvToRgb((rotatedH / 360),1 , 1);
-          canvasCtx.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${0.8 - bassNormalized * 1.33})`;
-        } else {
-          rgb = hexRgb(this.props.colors[index]);
-          canvasCtx.strokeStyle = `rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${0.8 - bassNormalized * 1.33})`;
-        }
-
-        canvasCtx.beginPath();
-        const sliceWidth = WIDTH * 1.0 / bufferLength;
-        let x = 0;
-        let y = 0;
-        let v = 0;
-
-        for(let i = 0; i < bufferLength; i++) {
-          v = dataArray[i] / 128.0;
-          y = v * HEIGHT / 4;
-
-          if(i === 0) {
-            canvasCtx.moveTo(x, y + (Y_OFFSET - index * 5));
-          } else {
-            canvasCtx.lineTo(x, y + (Y_OFFSET - index * 5));
-          }
-
-          x += sliceWidth;
-        }
-
-        canvasCtx.stroke();
-      });
     };
 
     draw();

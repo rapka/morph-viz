@@ -14,17 +14,21 @@ const TextOverlay = (props) => {
     <div className="text-container" id="text-overlay" >
       <div className="artist" id="artist" style={{
         color: artistColor,
-        textShadow: `0 0 14px ${artistShadowColor}, 0 0 12px ${artistShadowColor}`,
         }}
       >
         {props.artist}
       </div>
-      <div className="album" id="album" style={{
+      <div className="title" id="title" style={{
         color: titleColor,
-        textShadow: `0 0 14px ${titleShadowColor}, 0 0 12px ${titleShadowColor}`,
       }}>
         {props.title}
       </div>
+      <div className="album" id="album" style={{
+        color: titleColor,
+      }}>
+        {props.album}
+      </div>
+
     </div>
   );
 }
@@ -32,11 +36,13 @@ const TextOverlay = (props) => {
 TextOverlay.propTypes = {
   artist: PropTypes.string,
   title: PropTypes.string,
+  album: PropTypes.string,
 };
 
 TextOverlay.defaultProps = {
-  artist: '',
+  artist: 'Morphologist',
   title: '',
+  album: '',
 }
 
 export default TextOverlay;

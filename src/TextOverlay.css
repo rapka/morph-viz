@@ -1,36 +1,65 @@
-.text-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: absolute;
-  font-size: 5.5rem;
-  bottom: 260px;
-  width: 100%;
-  z-index: 10;
+@font-face {
+    font-family: 'Montreal';
+    src: url('../public/montreal.ttf') format('truetype');
 }
 
-.artist, .album {
-  font-family: 'Bungee Hairline', cursive;
-  /*font-family: 'Broken 15';*/
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  font-size: 15rem;
+  bottom: -20px;
+  width: 100%;
+  z-index: 10;
+  mix-blend-mode: overlay;
+}
+
+.artist, .album, .title {
+  font-family: 'Montreal';
   line-height: 0.8;
-  text-transform: uppercase;
   font-weight: bold;
-  letter-spacing: -10px;
+  position: absolute;
+  letter-spacing: 30px;
   word-spacing: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  white-space: nowrap;
 }
 
 .artist {
-  text-align: left;
-  padding-left: 40px;
-  padding-right: 10px;
-  max-width: 620px;
+  bottom: 1020px;
+  animation-name: slideHoriz !important;
+  animation-delay: -20s;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
 }
+
 .album {
+  bottom: 205px;
+  animation-name: slideHoriz !important;
+  animation-delay: -10s;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+}
+
+.title {
+  font-size: 18rem;
+  bottom: 700px;
   text-align: right;
-  padding-right: 40px;
-  padding-left: 10px;
-  max-width: 680px;
+  animation-name: slideHoriz !important;
+  animation-delay: 0s;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slideHoriz {
+  0% {
+    transform: translateX(100vw);
+  }
+
+  100% {
+    transform: translateX(-100vw);
+  }
 }

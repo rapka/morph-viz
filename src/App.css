@@ -7,12 +7,6 @@
   position: relative;
 }
 
-.moon {
-  z-index: 3;
-  width: 600px;
-  height: 600px;
-  display: block;
-  filter: opacity(0.4) contrast(1.5);
-  border-radius: 50%;
-  overflow: hidden;
+#blurOverlay {
+
 }

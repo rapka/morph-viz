@@ -28,12 +28,13 @@ function App() {
     };
   }, [playFunction]);
 
-  const { artist, title, art, scopes } = config;
+  const { artist, title, art, scopes, album } = config;
 
   return (
     <div className="App">
+      <div id="blurOverlay" />
       <Scope playing={playing} audioSrc={config.track} {...scopes} />
-      <Background />
+      <Background playing={playing} />
       <Cover
         playing={playing}
         backwards={art.backwards}
@@ -43,6 +44,7 @@ function App() {
       <TextOverlay
         artist={artist}
         title={title}
+        album={album}
       />
     </div>
   );
