@@ -1,8 +1,9 @@
 {
-	"artist": "morphologist",
-	"title": "silverback",
-	"album": "extant africana",
-	"track": "silverback.wav",
+	"artist": "34 MINUTES OF FURY",
+	"title": "Grey Ace",
+	"album": "",
+	"track": "01 Divination (Remastered).wav",
+	"videoSrc": "output6.mp4",
 	"textColor": "#FFFFFF",
 	"scopes": {
 		"count": 3,
@@ -13,12 +14,10 @@
 	"background": {
 		"color": "#000000",
 		"image": "",
-		"loopDuration": 0,
 		"css": "",
-		"vertical": false,
-		"directory": "rhino",
-		"bpm": 123,
-		"numImages": 104
+		"directory": "elephant",
+		"bpm": 126,
+		"numImages": 100
 	},
 	"art": {
 		"rotationDuration": 66,

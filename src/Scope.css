@@ -1,11 +1,36 @@
 #canvas {
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+/*  height: 1080px;*/
+/*  width: 1920px;*/
+  z-index: 100;
 }
 
 .viz {
   height: 100%;
   width: 100%;
   position: absolute;
-  z-index: 2;
+  z-index: 0;
+  filter: brightness(0.75);
+}
+
+#video0, #video1, #video2 {
+  position: absolute;
+/*  display: non;*/
+  left: 531px;
+  top: 111px;
+  width: 858px;
+  height: 858px;
+}
+
+#video1, #video2 {
+  display: none;
+}
+
+#cover-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 }

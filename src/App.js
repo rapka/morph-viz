@@ -1,9 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import set from 'lodash/set';
 
-import Cover from './Cover';
 import Scope from './Scope';
-import TextOverlay from './TextOverlay';
+import TextOverlay from './TextOverlay2';
 import Background from './Background';
 
 import config from './config';
@@ -12,12 +11,17 @@ import './App.css';
 
 function App() {
   const [playing, setPlaying] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   const playFunction = useCallback((event) => {
     if(event.keyCode === 32) {
       event.preventDefault();
       setPlaying(true);
+      setVideoPlaying(true);
     }
+    setTimeout(() => {
+      // setVideoPlaying(true);
+    }, 0);
   }, []);
 
   useEffect(() => {
@@ -33,14 +37,14 @@ function App() {
   return (
     <div className="App">
       <div id="blurOverlay" />
-      <Scope playing={playing} audioSrc={config.track} {...scopes} />
-      <Background playing={playing} />
-      <Cover
+      <Scope
         playing={playing}
-        backwards={art.backwards}
-        rotationDuration={art.rotationDuration}
-        coverUrl={art.file}
+        videoPlaying={videoPlaying}
+        audioSrc={config.track}
+        videoSrc={config.videoSrc}
+        {...scopes}
       />
+      <Background playing={playing} />
       <TextOverlay
         artist={artist}
         title={title}

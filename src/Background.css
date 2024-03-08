@@ -19,8 +19,12 @@
   /*filter: hue-rotate(0.375turn);*/
 }
 
+.bg-container {
+  z-index: 10;
+}
+
 .bg-container img {
-  z-index: 0;
+  z-index: 10;
   position: absolute;
   left: 0;
   top: 0;
@@ -33,7 +37,24 @@
 }
 
 .slides {
+/*  display: none;*/
+}
+
+.noise {
   display: none;
+}
+
+#slideshow {
+/*  display: none;*/
+/*  filter: invert(1);*/
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  z-index: 10;
+  scale: 1.5;
 }
 
 @keyframes slide {

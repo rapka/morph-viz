@@ -10,25 +10,21 @@ const TextOverlay = (props) => {
   const titleColor = config.titleTextColor || '#FFFFFF';
   const titleShadowColor = config.titleTextShadowColor || '#000000';
 
+  const styles = {
+    color: artistColor,
+  };
+
   return (
     <div className="text-container" id="text-overlay" >
-      <div className="artist" id="artist" style={{
-        color: artistColor,
-        }}
-      >
+      <div className="artist artist1" id="artist" style={styles}>
         {props.artist}
       </div>
-      <div className="title" id="title" style={{
-        color: titleColor,
-      }}>
+      <div className="title title1" id="title" style={styles}>
         {props.title}
       </div>
-      <div className="album" id="album" style={{
-        color: titleColor,
-      }}>
+      <div className="album album1" id="album" style={styles}>
         {props.album}
       </div>
-
     </div>
   );
 }
@@ -40,7 +36,7 @@ TextOverlay.propTypes = {
 };
 
 TextOverlay.defaultProps = {
-  artist: 'Morphologist',
+  artist: '',
   title: '',
   album: '',
 }
