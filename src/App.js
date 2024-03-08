@@ -17,11 +17,15 @@ function App() {
     if(event.keyCode === 32) {
       event.preventDefault();
       setPlaying(true);
-      setVideoPlaying(true);
+
+      if (config.delay && config.delay !== 0) {
+        setTimeout(() => {
+        setVideoPlaying(true);
+        }, config.delay);
+      } else {
+        setVideoPlaying(true);
+      }
     }
-    setTimeout(() => {
-      // setVideoPlaying(true);
-    }, 0);
   }, []);
 
   useEffect(() => {
