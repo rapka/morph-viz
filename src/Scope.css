@@ -15,7 +15,7 @@
   filter: brightness(0.75);
 }
 
-#video0, #video1, #video2 {
+#video0 {
   position: absolute;
 /*  display: non;*/
   left: 531px;
@@ -23,6 +23,7 @@
   width: 858px;
   height: 858px;
 }
+
 
 #video1, #video2 {
   display: none;

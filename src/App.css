@@ -7,12 +7,9 @@
   display: block;
   transform: translate3d(0, 0, 0);
   position: relative;
+  background: #1C40FF;
 }
 
-#blurOverlay {
-
-}
-
-body {
-   background: #1C40FF;
+.App.invert {
+  background: #e3bf00;
 }

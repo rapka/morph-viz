@@ -32,21 +32,20 @@
   height: 1080px;
 }
 
-.visible {
-  z-index: 10 !important;
+#bg {
+  z-index: 10;
 }
 
-.slides {
-/*  display: none;*/
+.visible {
+  z-index: 20 !important;
 }
+
 
 .noise {
   display: none;
 }
 
-#slideshow {
-/*  display: none;*/
-/*  filter: invert(1);*/
+#noiseCanvas {
   opacity: 0.3;
   position: absolute;
   top: 0;

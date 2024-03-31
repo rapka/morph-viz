@@ -2,10 +2,10 @@ import React, { useState, useCallback, useEffect } from 'react';
 import set from 'lodash/set';
 
 import Scope from './Scope';
-import TextOverlay from './TextOverlay2';
+import TextOverlay from './TextOverlay';
 import Background from './Background';
 
-import config from './config';
+import config from './config/config';
 
 import './App.css';
 
@@ -39,8 +39,7 @@ function App() {
   const { artist, title, art, scopes, album } = config;
 
   return (
-    <div className="App">
-      <div id="blurOverlay" />
+    <div className={`App ${config.invert ? 'invert' : ''}`}>
       <Scope
         playing={playing}
         videoPlaying={videoPlaying}

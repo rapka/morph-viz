@@ -4,8 +4,10 @@ import hexRgb from 'hex-rgb';
 import hsvToRgb from './util/hsvToRgb';
 import times from 'lodash/times';
 import sum from 'lodash/sum';
+import config from './config/config';
 
 import './Scope.css';
+
 
 let WIDTH = 1920 / 2;
 let HEIGHT = 1080;
@@ -103,8 +105,6 @@ class Scope extends React.Component {
 
       window.bassNormalized = bassNormalized;
       videoCtx0.style.transform = `scale(${1 + bassValue * 0.0004})`;
-      videoCtx1.style.transform = `scale(${1 + bassValue * 0.0004})`;
-      videoCtx2.style.transform = `scale(${1 + bassValue * 0.0004})`;
       // bgElem.style.filter = `blur(${bassValue * 0.004}px)`;
       // overlayElem.style.filter = `blur(${bassValue * 0.002}px)`;
       // overlayElem.style.transform = `translateY(${midValue * .15}px)`;
@@ -114,11 +114,8 @@ class Scope extends React.Component {
       let blurValue = bassValue * bassValue * 0.00001 * 0.25;
       // blurValue = Math.min(bassValue, 5);
       blurValue = bassValue / 256;
-      let filterString = `blur(${blurValue}px)`;
+      let filterString = `${config.invert ? 'invert(1) ' : '' }blur(${blurValue}px)`;
       videoCtx0.style.filter = filterString;
-      videoCtx1.style.filter = filterString;
-      videoCtx2.style.filter = filterString;
-      // console.log('greyscale', greyscale, midValue, highValue);
       // videoCtx.style.filter = `grayscale(${Math.max(70 - bassValue * 0.15, 0)}%)`;
       // slideCtx.filter = `blur(200px)`;
 
@@ -134,28 +131,12 @@ class Scope extends React.Component {
     return (
       <div className="viz">
         <video
-          src="output6.mp4"
+          src="videos/34_minutes_video_final.mp4"
           ref={this.video0}
           id="video0"
           loop={true}
           muted={true}
-          style={{ zIndex: this.state.videoIndex === 1 ? 100 : 100}}
-        />
-        <video
-          src="1.mp4"
-          ref={this.video1}
-          id="video1"
-          loop={true}
-          muted={true}
-          style={{ zIndex: this.state.videoIndex === 1 ? 100 : 2}}
-        />
-        <video
-          src="2.mp4"
-          ref={this.video2}
-          id="video2"
-          loop={true}
-          muted={true}
-          style={{ zIndex: this.state.videoIndex === 2 ? 100 : 3}}
+          style={{ zIndex: 100 }}
         />
         <canvas id="canvas"></canvas>
         <audio
@@ -171,14 +152,7 @@ class Scope extends React.Component {
 }
 
 Scope.propTypes = {
-  rotationOffset: PropTypes.number, // hue offset between different scopes (in degrees)
-  colors: PropTypes.arrayOf(PropTypes.string), // static color for each scope
   audioSrc: PropTypes.string.isRequired,
 };
-
-Scope.defaultProps = {
-  rotationOffset: 0,
-  colors: ['#FFFFFF', '#FFFFFF'],
-}
 
 export default Scope;
