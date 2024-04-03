@@ -6,14 +6,14 @@ import times from 'lodash/times';
 import sum from 'lodash/sum';
 import config from './config/config';
 
-import './Scope.css';
+import './VideoViz.css';
 
 
 let WIDTH = 1920 / 2;
 let HEIGHT = 1080;
 let H = 0;
 
-class Scope extends React.Component {
+class VideoViz extends React.Component {
   constructor(props) {
     super(props);
     this.state = { videoIndex: 0 };
@@ -96,7 +96,6 @@ class Scope extends React.Component {
       bassValue = Math.max(0, 10 * (Math.exp(bassValue * 0.02) - 2));
       const bassNormalized = Math.min(bassValue / 1500, 1) / 2;
 
-      // let highValue = sum(bassArray.slice(768)) / 256;
       let highValue = sum(bassArray.slice(768));
       highValue = Math.max(0, 10 * (Math.exp(highValue * 0.02) - 2));
       let midValue = sum(bassArray.slice(128)) / 896;
@@ -129,7 +128,7 @@ class Scope extends React.Component {
 
   render() {
     return (
-      <div className="viz">
+      <div className={`viz ${config.invert ? 'invert' : ''}`}>
         <video
           src="videos/34_minutes_video_final.mp4"
           ref={this.video0}
@@ -151,8 +150,8 @@ class Scope extends React.Component {
   }
 }
 
-Scope.propTypes = {
+VideoViz.propTypes = {
   audioSrc: PropTypes.string.isRequired,
 };
 
-export default Scope;
+export default VideoViz;

@@ -13,6 +13,10 @@
   position: absolute;
   z-index: 0;
   filter: brightness(0.75);
+
+  &.invert {
+    filter: brightness(1.2) contrast(80%);
+  }
 }
 
 #video0 {

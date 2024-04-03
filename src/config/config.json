@@ -1,18 +1,12 @@
 {
 	"artist": "Fury",
 	"album": "15 Minutes Of",
-	"title": "Go Out With A",
+	"title": "Down",
+	"mix": "Sober Mix ",
 	"track": "12 Go Out With A (Remastered).wav",
 	"videoSrc": "34_minutes_video_final.mp4",
-	"textColor": "#FFFFFF",
 	"invert": true,
-	"noise": true,
-	"scopes": {
-		"count": 3,
-		"rotateColors": false,
-		"rotationOffset": 180,
-		"colors": ["#FFFFFF", "#FFFFFF", "#888888"]
-	},
+	"noise": false,
 	"background": {
 		"color": "##FF00000",
 		"image": "",

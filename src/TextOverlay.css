@@ -19,7 +19,7 @@
 }
 
 .mins {
-  top: 48px;
+  top: 50px;
   left: 527px;
   width: 900px;
   text-align: start;
@@ -63,6 +63,7 @@
 
 .intrume, .ntalmix {
   position: absolute;
+  white-space: pre;
 }
 
 .intrume {
@@ -70,5 +71,5 @@
 }
 
 .ntalmix {
-  transform: translate(454px, -4px);
+  transform: translate(453px, -4px);
 }

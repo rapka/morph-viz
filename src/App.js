@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import set from 'lodash/set';
 
-import Scope from './Scope';
+import VideoViz from './VideoViz';
 import TextOverlay from './TextOverlay';
 import Background from './Background';
 
@@ -36,16 +36,14 @@ function App() {
     };
   }, [playFunction]);
 
-  const { artist, title, art, scopes, album } = config;
+  const { artist, title, art, album } = config;
 
   return (
     <div className={`App ${config.invert ? 'invert' : ''}`}>
-      <Scope
+      <VideoViz
         playing={playing}
         videoPlaying={videoPlaying}
         audioSrc={config.track}
-        videoSrc={config.videoSrc}
-        {...scopes}
       />
       <Background playing={playing} />
       <TextOverlay
